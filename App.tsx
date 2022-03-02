@@ -34,7 +34,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textMain}>Welcome to: Jordan lite (tm)</Text>
-      <Button onPress={handleButton} title="click to send j(s) to the compluter" color="#8a968a"/>
+      <Button onPress={handleButton} title="click to annoy the hell out of the host :)" color="#8a968a"/>
       <StatusBar style="auto" />
       <Counter/>
     </View>
