@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
 import Counter from "./modules/counter";
-import { ActionSheetIOS, StyleSheet, Text, View, Button} from 'react-native';
+import { ActionSheetIOS, ScrollView, StyleSheet, Text, View, Button} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,16 +11,27 @@ const styles = StyleSheet.create({
   },
   textMain: {
     color: '#fff',
-    marginTop: '30%',
-    marginLeft: '15%'
+    marginTop: '15%',
+    marginLeft: '15%',
+    marginBottom: '4%'
   },
   textMainContain: {
     alignItems: 'center'
   },
   countContain: {
-    flexDirection:'row',
+    flexDirection: 'column',
+    width: '100%',
+    height: '25%'
+  },
+  lite: {
+    fontWeight: 'bold',
+    color: '#93f',
+    fontStyle: 'italic',
+    textShadowColor: '#c0c',
+    textShadowRadius: 10,
+    fontSize: 24
   }
-})
+}); //dont ask about the 44.4, i have no clue either
 
 let i = 0;
 
@@ -35,16 +46,16 @@ const handleButton = () => {
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textMain}>Welcome to: Jordan lite (tm)</Text>
-      <Button onPress={handleButton} title="click to annoy the hell out of the host :)" color="#8a968a"/>
+    <ScrollView style={styles.container}>
+      <Text style={styles.textMain}>Welcome to: <Text style={styles.lite}> Jordan lite (tm)</Text></Text>
+      {/*<Button onPress={handleButton} title="click to annoy the hell out of the host :)" color="#8a968a"/>*/}
       <StatusBar style="auto" />
       <View style={styles.countContain}>
-        <Counter/>
-        <Counter/>
-        <Counter/>
-        <Counter/>
+        <Counter title="low goal"/>
+        <Counter title="high goal"/>
+        <Counter title="other"/>
+        <Counter title="other"/>
       </View>
-    </View>
+    </ScrollView>
   );
 }
