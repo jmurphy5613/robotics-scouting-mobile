@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
+import SelectDropdown from 'react-native-select-dropdown';
 import Counter from "./modules/counter";
 import { ActionSheetIOS, ScrollView, StyleSheet, Text, View, Button} from 'react-native';
 
@@ -63,8 +64,23 @@ export default function App() {
         <Counter title="high goal"/>
         <Counter title="other"/>
         <Counter title="other"/>
+        <SelectDropdown
+        data={['almong', 'this is a test']}
+        onSelect={(selectedItem, index) => {
+          console.log(selectedItem, index)
+        }}
+        buttonTextAfterSelection={(selectedItem, index) => {
+          // text represented after item is selected
+          // if data array is an array of objects then return selectedItem.property to render after item is selected
+          return selectedItem
+        }}
+        rowTextForSelection={(item, index) => {
+          // text represented for each item in dropdown
+          // if data array is an array of objects then return item.property to represent item in dropdown
+          return item
+        }}
+      />
       </View>
-
     </ScrollView>
   );
 }
