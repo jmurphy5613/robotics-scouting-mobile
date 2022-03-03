@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
   },
   countContain: {
     flexDirection: 'column',
-    width: '100%',
-    height: '25%'
+    width: '90%',
+    height: '25%',
+    marginLeft: '5%',
+    marginRight: '5%'
   },
   lite: {
     fontWeight: 'bold',
@@ -45,17 +47,24 @@ const handleButton = () => {
 }
 
 export default function App() {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    {label: 'tes', value: 'tes'},
+    {label: 'test', value: 'test'}
+  ]);
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.textMain}>Welcome to: <Text style={styles.lite}> Jordan lite (tm)</Text></Text>
       {/*<Button onPress={handleButton} title="click to annoy the hell out of the host :)" color="#8a968a"/>*/}
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
       <View style={styles.countContain}>
         <Counter title="low goal"/>
         <Counter title="high goal"/>
         <Counter title="other"/>
         <Counter title="other"/>
       </View>
+
     </ScrollView>
   );
 }
