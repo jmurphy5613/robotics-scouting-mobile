@@ -5,36 +5,39 @@ import { ActionSheetIOS, StyleSheet, Text, View, Button} from 'react-native';
 const styles = StyleSheet.create({
     add: {
         backgroundColor: '#0f0',
-        width: '10%',
+        width: '100%',
+        borderTopEndRadius: 10,
+        borderTopStartRadius: 10
     },
     contain: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     countBox: {
-        backgroundColor: '#aaa',
-        marginTop: '10%',
-        marginBottom: '10%',
-        width: '20%',
+        backgroundColor: '#333',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '45%'
+        height: '45%',
     },
     c: {
         color: '#fff',
     },
     subtract: {
         backgroundColor: '#f00',
-        width: '10%',
+        width: '100%',
+        borderBottomEndRadius: 10,
+        borderBottomStartRadius: 10
+    },
+    master: {
+        width: '20%',
+        marginLeft: '4%'
     }
 });
 
 export default function Counter(){
     const [count, setCount] = useState(0);
     return (
-        <View>
+        <View style={styles.master}>
             {/* this is the button container. im sorry that there are like five view tags, the button doesn't support styles :cryscream:*/}
             <View style={styles.contain}>
                 <View style={styles.add}>

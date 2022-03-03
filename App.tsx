@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
   },
   textMainContain: {
     alignItems: 'center'
+  },
+  countContain: {
+    flexDirection:'row',
   }
 })
 
@@ -36,7 +39,12 @@ export default function App() {
       <Text style={styles.textMain}>Welcome to: Jordan lite (tm)</Text>
       <Button onPress={handleButton} title="click to annoy the hell out of the host :)" color="#8a968a"/>
       <StatusBar style="auto" />
-      <Counter/>
+      <View style={styles.countContain}>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+      </View>
     </View>
   );
 }
