@@ -1,36 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
-import Counter from "./modules/counter";
 import { ScrollView, StyleSheet, Text, View, Button} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import TypeWriter from 'react-native-typewriter';
 
 const styles = StyleSheet.create({
-  // container: {
-  //   backgroundColor: '#0f172a',
-  //   height: '100%',
-  //   width: '100%',
-  // },
-  // textMainContain: {
-  //   alignItems: 'center'
-  // },
-  // countContain: {
-  //   flexDirection: 'column',
-  //   width: '90%',
-  //   height: '25%',
-  //   marginLeft: '5%',
-  //   marginRight: '5%',
-  // },
-  // lite: {
-  //   fontWeight: 'bold',
-  //   color: '#93f',
-  //   fontStyle: 'italic',
-  //   textShadowColor: '#c0c',
-  //   textShadowRadius: 10,
-  //   fontSize: 24
-  // }
-
   root: {
     height: '100%',
     width: '100%',
@@ -38,11 +14,18 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     width: '90%',
-    height: '100%'
+    height: '100%',
+    marginTop: '14%',
+    marginLeft: '5%'
   },
   welcomeText: {
     color: '#E879F9',
     fontFamily: 'JetBrains'
+  },
+  mainTitle: {
+    color: '#ffffff',
+    fontSize: 40,
+    fontFamily: 'MediumSNFS'
   }
 
 }); //dont ask about the 44.4, i have no clue either
@@ -51,6 +34,9 @@ const loadFonts = async () => {
   await Font.loadAsync({
     'JetBrains': require('./assets/fonts/JetBrainsMonoLight.ttf'),
   });
+  await Font.loadAsync({
+    'MediumSNFS': require('./assets/fonts/SFNSDisplay-Medium.ttf')
+  })
 }
 
 const setOrientation = async () => {
@@ -66,8 +52,8 @@ export default function App() {
     return (
       <AppLoading
         startAsync={async () => {
-          await loadFonts()
-          await setOrientation()
+          await loadFonts();
+          await setOrientation();
         }}
         onFinish={() => setIsLoaded(true)}
         onError={(er) => console.log(er)}
@@ -111,7 +97,9 @@ export default function App() {
     <View style={styles.root}>
       <StatusBar  style="auto" />
       <ScrollView style={styles.mainContent}>
-      <Text style={styles.welcomeText}>Hey there, welcom to</Text>
+        <Text style={styles.welcomeText}>Hey there, welcome to</Text>
+        <Text style={styles.mainTitle}>Jordan, the robotics scouting software that powers Roboforce</Text>
+        <Button title="0. Scout" color="#841584" />
       </ScrollView>
     </View>
   );
